@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const { v4: uuid } = require("uuid");
 const cors = require("cors");
-const port = 3000;
+const port = process.env.port || 3000;
 
 const filePath = path.join(__dirname, "files");
 if (!fs.existsSync(filePath)) {
