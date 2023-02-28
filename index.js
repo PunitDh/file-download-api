@@ -28,7 +28,7 @@ setInterval(() => {
     }
   });
   console.log("Running purge job...")
-}, 25000);
+}, 43200000);
 
 app.get("/", (_, res) => {
   res.json({ status: "Online" });
