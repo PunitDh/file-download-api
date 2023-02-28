@@ -27,6 +27,7 @@ setInterval(() => {
       fs.unLinkSync(_file);
     }
   });
+  console.log("Running purge job...")
 }, 25000);
 
 app.get("/", (_, res) => {
