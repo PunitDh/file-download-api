@@ -7,6 +7,9 @@ const cors = require("cors");
 const port = 3000;
 
 const filePath = path.join(__dirname, "files");
+if (!fs.existsSync(filePath)) {
+  fs.mkdirSync(filePath);
+}
 app.use("/static", express.static(filePath));
 app.use(express.json());
 app.use(cors());
@@ -25,6 +28,10 @@ setInterval(() => {
     }
   });
 }, 25000);
+
+app.get("/", (_, res) => {
+  res.json({ status: "Online" });
+});
 
 app.post("/download", (req, res) => {
   const { markdown } = req.body;
